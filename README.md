@@ -1,8 +1,21 @@
 # Suman Kumar - Portfolio Website
 Passionate Full-Stack Web Developer & Problem Solver.
 
-## 🚀 Overview
-This is my personal portfolio website, designed to showcase my skills, education, and projects. It is fully responsive and features a modern UI with a dark/light theme aesthetic.
+# Portfolio Website
+
+## 🌐 Live Website
+👉 https://kumarsuman-dev.github.io/portfolio/
+
+## 📸 Website Preview
+![Portfolio Screenshot](portfolio.jpg)
+
+## 🛠️ Tech Stack
+- HTML
+- CSS
+- JavaScript
+
+## 👤 Author
+Suman Sanu
 
 ## 🛠 Tech Stack
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)
