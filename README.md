@@ -24,8 +24,5 @@ This is my personal portfolio website, designed to showcase my skills, education
 - `resume/` - PDF Resume files
 - `index.html` - Main entry point
 
-## 🚀 How to Run
-Simply open `index.html` in any modern web browser.
-
 ---
 © 2026 Suman Kumar
