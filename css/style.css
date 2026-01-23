@@ -1,0 +1,716 @@
+/* =========================================
+   1. CSS Variables & Reset (Light Theme)
+   ========================================= */
+:root {
+    /* Colors - Light/Warm Theme */
+    --bg-color: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #fffcf6 0%, #ffffff 100%);
+    --bg-warm: #fdfbf7;
+
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-light: #777777;
+
+    --accent-orange: #ff9f43;
+    /* Warm Orange blob/glow */
+    --accent-glow: rgba(255, 159, 67, 0.2);
+
+    --button-black: #111111;
+    --button-text: #ffffff;
+
+    /* Typography */
+    --font-heading-bold: 'Oswald', sans-serif;
+    --font-heading-serif: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --container-max: 1300px;
+    --container-padding: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* =========================================
+   2. Typography Helpers
+   ========================================= */
+.serif-italic {
+    font-family: var(--font-heading-serif);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.section-heading {
+    font-family: var(--font-heading-bold);
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
+
+/* Utility to hide on desktop */
+.mobile-only {
+    display: none;
+}
+
+/* =========================================
+   3. Header / Navbar
+   ========================================= */
+.header {
+    padding: 30px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.logo {
+    font-family: var(--font-heading-serif);
+    font-size: 1.8rem;
+    /* Madison style */
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.nav-links a:hover {
+    color: var(--accent-orange);
+}
+
+.btn-black-pill {
+    background-color: var(--button-black);
+    color: var(--button-text);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-black-pill:hover {
+    transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =========================================
+   4. UI Grid & Hero Section (The Complex Part)
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    padding-top: 100px;
+    /* Space for fixed/abs header */
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Status Badge */
+.status-badge {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    padding: 8px 20px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-orange);
+    border-radius: 50%;
+}
+
+/* "Hey, there" */
+.hero-top-text {
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: -20px;
+    /* Overlap effect */
+    z-index: 10;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.hero-top-text span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Center Grid: I AM [IMAGE] SUMAN */
+.hero-center-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+
+.hero-big-text-left h1,
+.hero-big-text-right h1 {
+    font-family: var(--font-heading-bold);
+    font-size: 12vw;
+    /* Responsive massive text */
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 400px;
+    /* Base width */
+    max-width: 30vw;
+    /* Responsive limit */
+    z-index: 5;
+    margin: 0 -40px;
+    /* Negative margin to pull text closer */
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Basic cutout styling */
+    /* filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15)); */
+}
+
+/* Glow behind image */
+.hero-gradient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* Role / Bottom Text */
+.hero-bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.role-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 300px;
+}
+
+.role-title {
+    font-family: var(--font-heading-bold);
+    font-size: 2.5rem;
+    text-align: right;
+    width: 50%;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   5. Stats Section
+   ========================================= */
+.stats-bar {
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-family: var(--font-heading-bold);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   6. Projects Section (Modern Cards)
+   ========================================= */
+.projects {
+    background-color: #fff;
+}
+
+.projects-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.project-card-modern {
+    group: relative;
+}
+
+.project-img-holder {
+    height: 300px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--font-heading-bold);
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.project-card-modern:hover .project-img-holder {
+    transform: scale(0.98);
+}
+
+/* Gradients for project placeholders */
+.gradient-1 {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+.gradient-2 {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.gradient-3 {
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.project-info h3 {
+    font-family: var(--font-heading-bold);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.btn-link {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-link:hover {
+    gap: 15px;
+    /* Arrow moves */
+}
+
+/* =========================================
+   7. Skills Section (List Layout)
+   ========================================= */
+.skills-modern {
+    background-color: var(--bg-warm);
+}
+
+.skills-list-layout {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2fr;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.skill-year {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-category {
+    font-family: var(--font-heading-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.skill-tags {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.skill-tags span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   8. Footer / Contact
+   ========================================= */
+.footer-modern {
+    background-color: var(--bg-color);
+    padding-bottom: 40px;
+}
+
+.footer-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* "I can help you with" List */
+.footer-cta>h2 {
+    font-family: var(--font-heading-bold);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    display: none;
+    /* Hidden in this grid layout logic */
+}
+
+.help-areas {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.area-card {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.area-card span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    font-family: var(--font-heading-serif);
+    color: #eee;
+    line-height: 1;
+}
+
+.area-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+/* "Ready to Collab" Block */
+.contact-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact-action h2 {
+    font-family: var(--font-heading-bold);
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.btn-main-large {
+    background-color: var(--button-black);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.btn-main-large:hover {
+    transform: scale(1.05);
+    background-color: #000;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.social-links-footer {
+    display: flex;
+    gap: 30px;
+}
+
+/* =========================================
+   9. Responsive Design
+   ========================================= */
+@media (max-width: 900px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero-top-text {
+        font-size: 3rem;
+    }
+
+    .hero-big-text-left h1,
+    .hero-big-text-right h1 {
+        font-size: 14vw;
+    }
+
+    .hero-bottom-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .role-title {
+        text-align: left;
+        width: 100%;
+        font-size: 2rem;
+    }
+
+    .footer-cta {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-action h2 {
+        font-size: 3rem;
+    }
+
+    .skill-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .skill-tags {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    /* Mobile Menu - Off-canvas style */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hidden by default */
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background-color: var(--bg-color);
+        /* Matches theme */
+        padding: 80px 40px;
+        gap: 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease-in-out;
+        z-index: 99;
+        /* Below hamburger */
+    }
+
+    .nav-links.active {
+        right: 0;
+        /* Slide in */
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: block;
+    }
+
+    /* Hide the 'Contact' pill in the normal flow if you want it inside the menu, 
+       otherwise keep hidden or move it via JS. 
+       Here we just hide the desktop button */
+    .btn-black-pill {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 100;
+        /* Above the slide-out menu */
+    }
+
+    /* Hamburger Animation (Optional Polish) */
+    .hamburger.toggle .fa-bars:before {
+        content: "\f00d";
+        /* Change to 'X' icon */
+    }
+
+    /* Mobile Hero Adjustment */
+    .hero {
+        padding-top: 120px;
+        /* More space for header */
+        align-items: flex-start;
+        /* Align top on mobile */
+    }
+
+    .hero-center-grid {
+        flex-direction: column;
+        margin: 40px 0;
+    }
+
+    .hero-image-wrapper {
+        margin: 10px 0;
+        max-width: 80vw;
+        width: 80vw;
+    }
+
+    .hero-big-text-left h1,
+    .hero-big-text-right h1 {
+        font-size: 18vw;
+        text-align: center;
+        line-height: 0.9;
+    }
+
+    .hero-top-text {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .status-badge {
+        margin-top: 0;
+        /* remove if added previously */
+    }
+
+    /* Stats Grid Stacking */
+    .stats-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Font Size Adjustments for readability */
+    .section-heading {
+        font-size: 2.2rem;
+    }
+
+    .contact-action h2 {
+        font-size: 2.5rem;
+    }
+
+    .btn-main-large {
+        width: 100%;
+        text-align: center;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-big-text-left h1,
+    .hero-big-text-right h1 {
+        font-size: 20vw;
+    }
+
+    .role-title {
+        font-size: 1.5rem;
+    }
+
+    .projects-grid-modern {
+        grid-template-columns: 1fr;
+        /* Full width cards */
+    }
+}
