@@ -7,7 +7,7 @@ Passionate Full-Stack Web Developer & Problem Solver.
 👉 https://kumarsuman-dev.github.io/portfolio/
 
 ## 📸 Website Preview
-![Portfolio Screenshot](portfolio.jpg)
+![Portfolio Screenshot](portfolio.jpeg)
 
 ## 🛠️ Tech Stack
 - HTML
